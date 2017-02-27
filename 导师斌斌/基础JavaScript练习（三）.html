@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            background-color: #75b86b;
+        }
+    </style>
+</head>
+<body>
+<textarea></textarea>
+<input type="text">
+<button>click</button>
+
+<script>
+    var oText = document.getElementsByTagName('textarea')[0];
+    var oInp = document.getElementsByTagName('input')[0];
+    var oBtn = document.getElementsByTagName('button')[0];
+    oBtn.onclick = function () {
+
+        alert(search(oText.value,oInp.value))
+        oText.value = search(oText.value,oInp.value)
+    };
+    function search( str,value ) {
+
+        var reg = /\s+|,|，|、|\t|\r/g;
+        var result ='';
+
+        //记录分隔符
+        var sign =  str.match(reg);
+
+        var  temp = str.split(reg);
+        var reg2 = eval("/"+value+"/g");
+        alert(typeof reg2);
+        temp.map(function (item,index,temp) {
+            if( reg2.test(item) ){
+                alert(1);
+                temp[index] = "<span>"+item+"</span>"
+            }
+        });
+        for( var i=0;i<temp.length-1;i++ ){
+            result +=temp[i]+sign[i]
+        }
+        result += temp[temp.length-1]
+
+        return result
+
+    }
+
+</script>
+</body>
+</html>
