@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单联动</title>
+    <style>
+        body{
+            font-family: 微软雅黑;
+            font-size: 14px;
+        }
+        div{
+            display: inline-block;
+        }
+        .student{
+        }
+        .nostudent{
+            display: none;
+        }
+        select{
+            margin-left: 10px;
+        }
+        input[type="text"]{
+            margin-left: 4px;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <input type="radio" name="choice" data-index="0" checked>
+    <label >在校生</label>
+    <input type="radio" name="choice" data-index="1">
+    <label >非在校生</label>
+    <br>
+    <br>
+
+
+    <div class="student" data-index="0">
+        <label>学校</label>
+        <select name="city">
+            <option name="city" value="0">北京</option>
+            <option name="city" value="1">上海</option>
+            <option name="city" value="2">成都</option>
+            <option name="city" value="3">合肥</option>
+        </select>
+        <select name="school">
+            <option name="school" value="0">清华大学</option>
+            <option name="school" value="1">北京大学</option>
+            <option name="school" value="2">人民大学</option>
+            <option name="school" value="3">中央戏剧学院</option>
+        </select>
+    </div>
+    <div class="nostudent" data-index="1">
+        <label>就业单位</label>
+        <input type="text">
+    </div>
+
+</form>
+
+<script>
+    var oForm = document.getElementsByTagName('form')[0];
+    var aInp = document.getElementsByTagName('input');
+    var oDiv = document.getElementsByTagName('div');
+    var aSele = document.getElementsByTagName('select');
+
+    var arr = [
+        ['清华大学','北京大学','人民大学',"中央戏剧学院"],
+        ['上海大学','华东理工大学','上海交大'],
+        ['四川大学','电子科技大学','西南交大'],
+        ['中科大','合工大','安徽大学']
+
+    ]
+
+    for( var i=0;i<2;i++ ){
+        aInp[i].onchange = function () {
+            console.log(1)
+            for (var j = 0; j < 2; j++) {
+                oDiv[j].style.display = 'none'
+
+                if (aInp[j].checked) {
+                    oDiv[aInp[j].dataset.index].style.display = 'inline-block'
+                }
+            }
+        }}
+
+
+        aSele[0].onchange = function () {
+            var iNow =this.value;
+            while(aSele[1].firstElementChild){
+                aSele[1].removeChild(aSele[1].firstElementChild)
+            }
+            for( var i=0;i<arr[iNow].length;i++ ){
+                var oOpt = document.createElement('option');
+                oOpt.value = i
+                oOpt.innerHTML = arr[iNow][i];
+                aSele[1].appendChild(oOpt)
+            }
+
+
+        }
+
+
+
+
+</script>
+</body>
+</html>
