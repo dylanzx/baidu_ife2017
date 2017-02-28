@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单校验2</title>
+    <style>
+        form{
+            position: relative;
+            width: 240px;
+            padding: 10px;
+            border: 1px solid darkgrey;
+
+        }
+        label{
+            display: inline-block;
+            width: 65px;
+            text-align: right;
+        }
+        span{
+            font-size: 12px;
+            margin-left: 70px;
+        }
+        input[type="submit"]{
+            display: inline-block;
+            width: 40px;
+            margin-top: 10px;
+            margin-left: 152px;
+        }
+
+    </style>
+</head>
+<body>
+<form action="">
+    <label >名称</label>
+    <input type="text"><br>
+    <span></span>
+    <br>
+
+    <label>密码</label>
+    <input type="password"><br>
+    <span></span>
+    <br>
+
+    <label>重复密码</label>
+    <input type="password"><br>
+    <span></span>
+    <br>
+
+    <label>邮箱</label>
+    <input type="email"><br>
+    <span></span>
+    <br>
+
+    <label>手机</label>
+    <input type="text"><br>
+    <span></span>
+
+    <input type="submit" value="提交">
+</form>
+
+<script>
+    var oForm = document.getElementsByTagName('form')[0];
+    var aInp = document.getElementsByTagName('input');
+    var aSpan = document.getElementsByTagName('span');
+    var onOff  = true
+
+    aInp[0].onblur = function () {
+        var value = this.value;
+        var reg = /\w{4,8}/;
+        if( value.match(reg) ){
+            aSpan[0].innerHTML = "用户名可用";
+            aSpan[0].style.color = 'green'
+            this.index = 1
+
+        }else {
+            aSpan[0].innerHTML = "用户名不可用"
+            aSpan[0].style.color = 'red'
+        }
+    }
+
+    aInp[1].onblur = function () {
+        var reg = /^[a-zA-Z]\w{5,17}$/  //以字母开头，只能是字母下划线和数字，6-18位；
+        if( this.value =="" ){
+            aSpan[1].innerHTML = "请输入密码";
+            aSpan[1].style.color = 'red'
+        }else  if( this.value.match(reg) ){
+            aSpan[1].innerHTML = "密码可用";
+            aSpan[1].style.color = 'green'
+        }else {
+            aSpan[1].innerHTML = "密码不可用";
+            aSpan[1].style.color = 'red'
+        }
+    }
+
+    aInp[2].onblur = function () {
+        var value = this.value;
+        if(  value =='')  {
+            aSpan[2].innerHTML = '请重复输入密码';
+            aSpan[2].style.color = 'red'
+        }else if( value ==aInp[1].value){
+            aSpan[2].innerHTML = "密码输入一致";
+            aSpan[2].style.color = 'green'
+        }else {
+            aSpan[2].innerHTML = "密码输入不一致";
+            aSpan[2].style.color = 'red'
+        }
+    }
+
+    aInp[3].onblur = function () {
+        var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/ //邮箱检测正则表达式
+        var value = this.value;
+        if(  value =='')  {
+            aSpan[3].innerHTML = '请输入邮箱';
+            aSpan[3].style.color = 'red'
+        }else if( value.match(reg)){
+            aSpan[3].innerHTML = "邮箱格式输入正确";
+            aSpan[3].style.color = 'green'
+
+        }else {
+            aSpan[3].innerHTML = '邮箱格式不正确';
+            aSpan[3].style.color = 'red'
+        }
+    }
+
+    aInp[4].onblur = function () {
+        var reg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/ //手机号检测正则表达式
+        var value = this.value;
+        if(  value =='')  {
+            aSpan[4].innerHTML = '请输入手机号';
+            aSpan[4].style.color = 'red'
+        }else if( value.match(reg)){
+            aSpan[4].innerHTML = "手机号格式正确";
+            aSpan[4].style.color = 'green'
+        }else {
+            aSpan[4].innerHTML = '手机号格式不正确';
+            aSpan[4].style.color = 'red'
+        }
+    }
+
+    oForm.onsubmit = function () {
+        return false
+
+    }
+
+
+
+</script>
+</body>
+</html>
