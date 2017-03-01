@@ -107,7 +107,7 @@
 
     function moveBox(box,message ) {
         switch (message){
-            case "TUN RIG":
+            case "right":
                 if( face.className=="top" ){
                     face.className = "right"
                 }else if( face.className=="right" ){
@@ -120,7 +120,7 @@
                 }
                 break;
 
-            case "TUN LEF":
+            case "left":
                 if( face.className=="top" ){
                     face.className = "left"
                 }else if( face.className=="left" ){
@@ -132,7 +132,7 @@
                 }
                 break;
 
-            case "TUN BAC":
+            case "back":
                 if( face.className=="top" ){
                     face.className = "bottom"
                 }else if( face.className=="left" ){
@@ -144,34 +144,34 @@
                 }
                 break;
 
-            case "GO":
-                    var dir = face.className;
-                    if( dir=="top" ){
-                        if( box.offsetTop<2 ){
-                            alert("越界")
+            case "go":
+                var dir = face.className;
+                if( dir=="top" ){
+                    if( box.offsetTop<2 ){
+                        alert("越界")
 
-                        }else {
-                            box.style.top = box.offsetTop-31+'px'
-                        }
-                    }else if(dir=="left"){
-                        if( box.offsetLeft<2 ){
-                            alert("越界")
-                        }else {
-                            box.style.left = box.offsetLeft-31+'px'
-                        }
-                    }else if(dir=="bottom"){
-                        if( box.offsetTop>270 ){
-                            alert("越界")
-                        }else {
-                            box.style.top = box.offsetTop+31+'px'
-                        }
-                    }else if(dir=="right"){
-                        if( box.offsetLeft>270 ){
-                            alert("越界")
-                        }else {
-                            box.style.left = box.offsetLeft+31+'px'
-                        }
+                    }else {
+                        box.style.top = box.offsetTop-31+'px'
                     }
+                }else if(dir=="left"){
+                    if( box.offsetLeft<2 ){
+                        alert("越界")
+                    }else {
+                        box.style.left = box.offsetLeft-31+'px'
+                    }
+                }else if(dir=="bottom"){
+                    if( box.offsetTop>270 ){
+                        alert("越界")
+                    }else {
+                        box.style.top = box.offsetTop+31+'px'
+                    }
+                }else if(dir=="right"){
+                    if( box.offsetLeft>270 ){
+                        alert("越界")
+                    }else {
+                        box.style.left = box.offsetLeft+31+'px'
+                    }
+                }
                 break;
             default:
                 alert("指令错误")
