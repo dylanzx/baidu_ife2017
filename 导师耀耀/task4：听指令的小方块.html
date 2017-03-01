@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,li,body,input{
+            padding: 0;
+            margin: 0;
+        }
+
+        li{
+            list-style: none;
+            float: left;
+        }
+        div#box{
+            position: relative;
+            margin: 10px auto;
+        }
+        .girl{
+            position: absolute;
+            background-color: #333333;
+            top:1px;
+            left: 1px;
+        }
+        .girl div{
+            position: absolute;
+            background-color: greenyellow;
+
+        }
+        .top{
+            width: 100%;
+            height: 10px;
+        }
+        .left{
+            width: 10px;
+            height: 100%;
+        }
+        .bottom{
+            width: 100%;
+            height: 10px;
+            bottom: 0;
+        }
+        .right{
+            width: 10px;
+            height: 100%;
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div id="box">
+    <ul id="grid"></ul>
+    <div class="girl">
+        <div class="top"></div>
+    </div>
+</div>
+<div>
+    <input type="text">
+    <input type="button" value="执行">
+</div>
+<script>
+    var oUl = document.getElementById('grid');
+    var oDiv = document.getElementById('box');
+    var girl = oDiv.getElementsByTagName('div')[0];
+    var face = girl.getElementsByTagName('div')[0];
+    var aInput = document.getElementsByTagName('input');
+
+    var len = 10;
+    var iWidth = 30,iHeight = 30;
+
+
+    createGrid(len,iWidth,iHeight);
+
+    aInput[1].onclick = function () {
+        moveBox(girl,aInput[0].value)
+
+    };
+
+    function createGrid(len,width,height) {
+        oUl.style.borderLeft = '1px solid gray';
+        oUl.style.borderTop = '1px solid gray';
+        oUl.style.width = len*(width+1)+'px';
+        oUl.style.height = len*(height+1)+'px';
+
+        oDiv.style.width = len*(width+1)+2+'px';
+        oDiv.style.height = len*(width+1)+2+'px';
+
+        girl.style.width = width+'px';
+        girl.style.height = height+'px';
+
+        for( var i=0;i<len*len;i++ ){
+            var oLi = document.createElement('li');
+            oLi.style.borderRight = '1px solid gray';
+            oLi.style.borderBottom = '1px solid gray';
+            oLi.style.width = width+'px';
+            oLi.style.height = height+'px';
+            oUl.appendChild(oLi)
+        }
+    }
+
+    function moveBox(box,message ) {
+        switch (message){
+            case "right":
+                if( face.className=="top" ){
+                    face.className = "right"
+                }else if( face.className=="right" ){
+                    face.className = "bottom"
+                }else if( face.className=="bottom" ){
+                    face.className = "left";
+                    alert(1)
+                }else if(face.className = "left"){
+                    face.className = "top"
+                }
+                break;
+
+            case "left":
+                if( face.className=="top" ){
+                    face.className = "left"
+                }else if( face.className=="left" ){
+                    face.className = "bottom"
+                }else if( face.className=="bottom" ){
+                    face.className = "right"
+                }else {
+                    face.className = "top"
+                }
+                break;
+
+            case "back":
+                if( face.className=="top" ){
+                    face.className = "bottom"
+                }else if( face.className=="left" ){
+                    face.className = "right"
+                }else if( face.className=="bottom" ){
+                    face.className = "top"
+                }else {
+                    face.className = "left"
+                }
+                break;
+
+            case "go":
+                    var dir = face.className;
+                    if( dir=="top" ){
+                        if( box.offsetTop<2 ){
+                            alert("越界")
+
+                        }else {
+                            box.style.top = box.offsetTop-31+'px'
+                        }
+                    }else if(dir=="left"){
+                        if( box.offsetLeft<2 ){
+                            alert("越界")
+                        }else {
+                            box.style.left = box.offsetLeft-31+'px'
+                        }
+                    }else if(dir=="bottom"){
+                        if( box.offsetTop>270 ){
+                            alert("越界")
+                        }else {
+                            box.style.top = box.offsetTop+31+'px'
+                        }
+                    }else if(dir=="right"){
+                        if( box.offsetLeft>270 ){
+                            alert("越界")
+                        }else {
+                            box.style.left = box.offsetLeft+31+'px'
+                        }
+                    }
+                break;
+            default:
+                alert("指令错误")
+        }
+    }
+
+</script>
+</body>
+</html>
