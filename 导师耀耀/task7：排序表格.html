@@ -66,6 +66,29 @@
             <td></td>
 
         </tr>
+        <tr>
+            <td>小亮</td>
+            <td>80</td>
+            <td>71</td>
+            <td>99</td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td>小朱</td>
+            <td>99</td>
+            <td>71</td>
+            <td>99</td>
+            <td></td>
+
+        </tr>        <tr>
+            <td>小红</td>
+            <td>99</td>
+            <td>91</td>
+            <td>99</td>
+            <td></td>
+
+        </tr>
     </tbody>
 </table>
 
@@ -92,8 +115,8 @@
             data.push(num)
             }
         }
-        tmp[aTr.length].innerHTML = parseFloat(data[1])+parseFloat(data[2])+parseFloat(data[3])
-        data.push(parseFloat(tmp[aTr.length].innerHTML))
+        tmp[tmp.length-1].innerHTML = parseFloat(data[1])+parseFloat(data[2])+parseFloat(data[3])
+        data.push(parseFloat(tmp[tmp.length-1].innerHTML))
         arr.push(data);
     }
 
