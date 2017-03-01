@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        body{
+            font-family: 微软雅黑;
+        }
+
+        table{
+            border-collapse:collapse;
+            border:none;
+        }
+
+        thead tr{
+            color: #fff;
+            background-color: #5b5b5b;
+        }
+        thead td{
+            cursor: pointer;
+        }
+
+        td{
+            border:solid #d6d6d6 1px;
+            width: 80px;
+            text-align: center;
+            padding: 4px 8px;
+
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <td title="点击排序">姓名</td>
+            <td title="点击排序">语文</td>
+            <td title="点击排序">数学</td>
+            <td title="点击排序">英语</td>
+            <td title="点击排序">总成绩</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>小红</td>
+            <td>88</td>
+            <td>77</td>
+            <td>81</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>83</td>
+            <td>99</td>
+            <td>96</td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td>小黑</td>
+            <td>100</td>
+            <td>71</td>
+            <td>99</td>
+            <td></td>
+
+        </tr>
+    </tbody>
+</table>
+
+
+<script>
+    var oTable = document.getElementsByTagName('table')[0];
+    var aTr = oTable.getElementsByTagName('tr');
+    var onOff = true
+    //arr以矩阵形式保存每个同学的成绩
+    var arr = [];
+    for(var i=1;i<aTr.length;i++){
+        var tmp = aTr[i].getElementsByTagName('td');
+
+        var data = [];
+
+        for( var j=0;j<tmp.length-1;j++ ){
+            var num;
+            //姓名不是数字单独存储。
+            if(j==0){
+                num = (tmp[j].innerHTML);
+                data.push(num)
+            }else {
+            num = parseFloat(tmp[j].innerHTML);
+            data.push(num)
+            }
+        }
+        tmp[aTr.length].innerHTML = parseFloat(data[1])+parseFloat(data[2])+parseFloat(data[3])
+        data.push(parseFloat(tmp[aTr.length].innerHTML))
+        arr.push(data);
+    }
+
+
+    //排序
+    function sortNum(arr,iNow,style) {
+        for( var i=0;i<arr.length;i++){
+            for( var j=0;j<arr.length;j++ ){
+                if(style){
+                    if( arr[i][iNow]<arr[j][iNow] ){
+                        var tmp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = tmp;
+                    }
+                }
+                else {
+                    if( arr[i][iNow]>arr[j][iNow] ){
+                        var tmp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = tmp;
+                    }
+                }
+            }
+        }
+        return arr
+    }
+
+    var aDd = aTr[0].getElementsByTagName('td');
+
+        for( var i=0;i<aDd.length;i++ ){
+            aDd[i].index = i;
+            aDd[i].onclick = function () {
+                onOff=!onOff
+                sortNum(arr,this.index,onOff)
+                full(arr)
+            }
+
+        }
+
+    //将排序后的数组填充到表格中。
+    function full(arr) {
+        for( var i=1;i<aTr.length;i++ ){
+            var tmp = aTr[i].getElementsByTagName('td');
+            for(var j=0;j<arr[0].length;j++){
+                tmp[j].innerHTML = arr[i-1][j]
+
+            }
+
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
