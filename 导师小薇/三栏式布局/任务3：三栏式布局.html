@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .clear{
+            clear: both;
+            zoom: 1;
+        }
+        .container,.right,.left,.middle{
+            padding: 20px;
+            border: 1px solid #999;
+        }
+        img{
+            border: 1px solid #999;
+        }
+        .container{
+            position: relative;
+            background-color: #d6d6d6;
+        }
+
+        .left{
+            width: 160px;
+            height: 100px;
+            float:left;
+
+        }
+        .right{
+            width: 80px;
+            height: 400px;
+            float: right;
+            right: 10px;
+            top:10px;
+        }
+        .right img{
+            margin-bottom: 10px;
+        }
+        .middle{
+            margin-left: 220px;
+            margin-right: 140px;
+            /*height: 300px;*/
+            /*width:expression(document.body.clientWidth <= 600? "600px": "auto" );*/
+            min-width:600px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <img src="logo.png" title="logo" alt="logo">
+        团队名称
+    </div>
+    <div class="right">
+        <img src="logo.png" title="logo" alt="logo">
+        <img src="logo.png" title="logo" alt="logo">
+        <img src="logo.png" title="logo" alt="logo">
+        <img src="logo.png" title="logo" alt="logo">
+
+    </div>
+    <div class="middle">
+        <p>团队介绍</p>
+        团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍
+        团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍
+        团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍
+        团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍
+    </div>
+
+    <div class="clear"></div>
+</div>
+</body>
+</html>
