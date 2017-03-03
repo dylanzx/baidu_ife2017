@@ -47,14 +47,13 @@ a{
 #side{
     width: 260px;
     background-color: #2a2e3d;
-    height: 500px;
+    height: 800px;
     float: left;
 }
 
 #side .loginInfo{
     width: 100%;
     height: 150px;
-    border-bottom: 1px solid red;
 }
 .loginInfo .img {
     margin-left: 46px;
@@ -73,8 +72,6 @@ a{
 .loginInfo .following{
     margin-top: 24px;
     margin-left: 64px;
-
-
 }
 .following ul{
     float: left;
@@ -99,14 +96,65 @@ a{
 }
 .reportForm{
     width: 100%;
-    height: 190px;
+    padding-top: 14px;
+    height: 176px;
     background-color: #393e4e;
 }
-.reportForm .ul{
-    margin-left: ;
+.reportForm span{
+    font-size: 12px;
+    color: #fff;
+    display: block;
+    margin-left: 46px;
+    text-indent: 1.5em;
+    background: url("pics/spanBg.gif") no-repeat 0 2px;
 
 }
+.reportForm .ul>li{
+    background: url("pics/liBg.gif") no-repeat 22px 6px;
+}
 
+.reportForm .ul>li:nth-child(2){
+    color: #fff;
+    overflow: hidden;
+    background: url("pics/liBg2.gif") no-repeat 20px 5px;
+}
+.ul>li:nth-child(2) li:nth-child(1){
+    color: #fff;
+}
+.reportForm .ul ul:not(.ul2){
+    display: none;
+}
+.reportForm  li{
+    padding-left: 40px;
+    color: #6e8096;
+    margin-top: 12px;
+}
+
+ul.list{
+    margin-left: 46px;
+    color: #6e8095;
+    font-size: 12px;
+}
+ul.list li{
+    /*padding-left: 20px;*/
+    padding: 18px 20px;
+}
+
+.list li:nth-child(1){
+    background: url("pics/sideBg.gif") no-repeat 0 22px;
+}
+.list li:nth-child(2){
+    background: url("pics/sideBg.gif") no-repeat 0 -27px;
+}
+.list li:nth-child(3){
+    background: url("pics/sideBg.gif") no-repeat 0 -74px;
+}
+.list li:nth-child(4){
+    background: url("pics/sideBg.gif") no-repeat 0 -74px;
+}
+.list li:nth-child(5){
+    background: url("pics/sideBg.gif") no-repeat 0 -171px;
+}
 
 
 
@@ -136,4 +184,37 @@ a{
 }
 .catalog .color{
     color: #75a0c6;
+}
+#main .searcher{
+    font-size: 12px;
+    width: 888px;
+    height: 86px;
+    border: 1px solid #dcdee0;
+    margin: 20px auto 0 auto;
+}
+.searcher li{
+    float: left;
+    margin-left: 30px;
+    margin-top: 16px;
+}
+.searcher label{
+    color: #b7b7b7;
+}
+.searcher select,.searcher input{
+    color:#323333;
+    height: 24px;
+
+}
+.searcher select{
+    height: 24px;
+    /*border: 1px solid gray;*/
+}
+.searcher select:nth-child(1){
+    width: 100px;
+}
+.searcher li:nth-child(2) select{
+    width: 118px;
+}
+.searcher li:nth-child(3) select{
+    width: 118px;
 }
