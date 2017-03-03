@@ -1,0 +1,30 @@
+.clear{
+    clear: both;
+    zoom: 1;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#head{
+    width: 1280px;
+    margin: 0 auto;
+    height: 56px;
+    /*background-color: #2189bf;*/
+    background: url("pics/headbg.gif") #2189bf no-repeat 50px 10px;
+}
+#head input {
+    float: right;
+    margin-top: 12px;
+}
+#head input:nth-child(2) {
+    width: 296px;
+    height: 26px;
+    border-radius: 20px;
+    background: url("pics/headSearch.gif") no-repeat 4px #fff;
+    text-indent: 2.4em;
+}
+#head input:nth-child(1) {
+    background: url("pics/");
+}
