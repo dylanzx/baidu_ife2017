@@ -3,28 +3,128 @@
     zoom: 1;
 }
 *{
+    font-family: 微软雅黑;
     padding: 0;
     margin: 0;
 }
-
-#head{
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.container{
     width: 1280px;
     margin: 0 auto;
+}
+#head{
+    width: 100%;
     height: 56px;
-    /*background-color: #2189bf;*/
     background: url("pics/headbg.gif") #2189bf no-repeat 50px 10px;
 }
 #head input {
     float: right;
     margin-top: 12px;
-}
-#head input:nth-child(2) {
     width: 296px;
     height: 26px;
     border-radius: 20px;
     background: url("pics/headSearch.gif") no-repeat 4px #fff;
     text-indent: 2.4em;
 }
-#head input:nth-child(1) {
-    background: url("pics/");
+#head span{
+    margin: 20px 94px 0 20px;
+    float: right;
+    width: 42px;
+    background: url("pics/login.gif") no-repeat;
+}
+#head a{
+    font-size: 12px;
+    float: right;
+
+}
+
+#side{
+    width: 260px;
+    background-color: #2a2e3d;
+    height: 500px;
+    float: left;
+}
+
+#side .loginInfo{
+    width: 100%;
+    height: 150px;
+    border-bottom: 1px solid red;
+}
+.loginInfo .img {
+    margin-left: 46px;
+    margin-top: 18px;
+    height: 56px;
+    line-height: 56px;
+
+    background: url("pics/loginInfo.gif") no-repeat;
+}
+
+.loginInfo .img a{
+    margin-left: 74px;
+    font-size: 16px;
+    color: #e2e2e2;
+}
+.loginInfo .following{
+    margin-top: 24px;
+    margin-left: 64px;
+
+
+}
+.following ul{
+    float: left;
+    width: 56px;
+}
+.following ul a:nth-child(1){
+    font-size: 16px;
+}
+.following ul a:nth-child(2){
+    font-size: 12px;
+}
+.following .ul2{
+    margin-left: 20px;
+    padding-left: 14px;
+    border-left: 2px solid #323647;
+}
+.following li{
+    text-align: center;
+}
+.following a{
+    color: #637386;
+}
+
+
+
+
+
+
+
+
+#main{
+    margin-left: 260px;
+    background-color: #eeedec;
+    height: 200px;
+}
+#main .catalog{
+    height: 30px;
+    background-color: #fff;
+}
+.catalog ul{
+    margin-left: 10px;
+    height: 100%;
+    line-height: 30px;
+}
+.catalog ul li{
+    margin-left: 10px;
+    float: left;
+    font-size: 12.28px;
+    color: #b7b7b7;
+}
+.catalog .color{
+    color: #75a0c6;
 }
