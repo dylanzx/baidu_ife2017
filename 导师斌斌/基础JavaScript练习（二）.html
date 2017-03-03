@@ -3,8 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        input:nth-child(3){
+            margin-right: 20px;
+        }
+        ul{
+            list-style: none;
+            height: 30px;
+        }
+        li{
+            width: 30px;
+            border: 1px solid red;
+            height: 100%;
+            line-height: 100%;
+            text-align: center;
+            float: left;
+            margin-right: 4px;
+        }
+    </style>
 </head>
 <body>
+<input type="text">
+<input type="button" value="左侧入">
+<input type="button" value="右侧入">
+<input type="button" value="左侧出">
+<input type="button" value="右侧出">
+<ul id="list"></ul>
+<script>
+    var aInp = document.getElementsByTagName('input');
+    var oUl = document.getElementById('list');
+
+    var data = [];
+
+    function doIt( arr ) {
+
+        oUl.innerHTML = '';
+        for(var i=0;i<arr.length;i++){
+            var oLi = document.createElement("li");
+            oLi.innerHTML = arr[i];
+            oUl.appendChild(oLi)
+        }
+    }
+    function test(value) {
+        var re = /^[0-9]*$/
+        if( re.test(value) ){
+            return 1
+        }
+    }
+
+    aInp[1].onclick = function () {
+        var value = aInp[0].value;
+        if(!test(value)){
+            alert("请输入数字！")
+            return
+        }
+        data.unshift(value);
+        doIt(data)
+        aInp[0].value = ''
+    };
+
+    aInp[2].onclick = function () {
+        var value = aInp[0].value;
+        if(!test(value)){
+            alert("请输入数字！")
+            return
+        }
+        data.push(value);
+        doIt(data);
+        aInp[0].value = ''
+    };
+
+    aInp[3].onclick = function () {
+        if( data.length==0 ){
+            alert("无法操作，数组为空！")
+        }else {
+            data.shift();
+            doIt(data)
+        }
+    };
+
+    aInp[4].onclick = function () {
+        if( data.length==0 ){
+            alert("无法操作，数组为空！")
+        }else {
+            data.pop()
+            doIt(data)
+        }
+    }
+
+</script>
+
 
 </body>
 </html>
