@@ -135,6 +135,8 @@ ul.list{
     color: #6e8095;
     font-size: 12px;
 }
+
+
 ul.list li{
     /*padding-left: 20px;*/
     padding: 18px 20px;
@@ -165,7 +167,7 @@ ul.list li{
 #main{
     margin-left: 260px;
     background-color: #eeedec;
-    height: 200px;
+    height: 500px;
 }
 #main .catalog{
     height: 30px;
@@ -191,6 +193,7 @@ ul.list li{
     height: 86px;
     border: 1px solid #dcdee0;
     margin: 20px auto 0 auto;
+    background-color: #fff;
 }
 .searcher li{
     float: left;
@@ -199,6 +202,7 @@ ul.list li{
 }
 .searcher label{
     color: #b7b7b7;
+    margin-right: 16px;
 }
 .searcher select,.searcher input{
     color:#323333;
@@ -217,4 +221,67 @@ ul.list li{
 }
 .searcher li:nth-child(3) select{
     width: 118px;
+}
+.searcher select[name="persons"]{
+    margin-right: 16px;
+}
+.searcher .top{
+    margin-bottom: 5px;
+}
+
+.searcher input[type=button]{
+    background-color: #388bc2;
+    color: #fff;
+    margin-top: 16px;
+}
+#main .price{
+    width: 888px;
+    height: 64px;
+    margin: 8px auto 0 auto;
+    font-size: 12px;
+}
+.price>span{
+    display: inline-block;
+    width: 28px;
+    height: 100%;
+    border: 1px solid #d2d4d7;
+    cursor: pointer;
+    background:url("pics/left.gif") no-repeat #fff 10px 22px;
+}
+span.rightSpan{
+    background: url("pics/right.gif") no-repeat #fff 10px 22px;
+    margin-left: 6px;
+}
+
+.price .float{
+    height: 100%;
+    display: inline-block;
+    margin-top: -2px;
+
+}
+.float li{
+    float: left;
+    width: 106px;
+    height: 100%;
+    border: 1px solid #d7d9dc;
+    background-color: #ffffff;
+    margin-left: 5px;
+}
+
+.time{
+    color: #000;
+}
+
+.history{
+    position: relative;
+    width: 124px;
+    float: right;
+    height: 100%;
+    line-height: 100%;
+    background: url("pics/cal.gif") #ffffff no-repeat 7px 18px;
+}
+.history span{
+    position: absolute;
+    left: 46px;
+    top: 26px;;
 }
