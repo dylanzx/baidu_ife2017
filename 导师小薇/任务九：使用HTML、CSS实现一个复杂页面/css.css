@@ -267,9 +267,29 @@ span.rightSpan{
     background-color: #ffffff;
     margin-left: 5px;
 }
+li.active{
+    border-top:2px solid blue;
+}
+.float li:hover{
+    border-top:2px solid blue;
+
+}
 
 .time{
-    color: #000;
+    font-size: 12px;
+    color: #323333;
+    margin-left: 30px;
+    margin-top: 14px;
+}
+
+.danjia{
+    width: 100%;
+    background: url("pics/yuan.gif") 28px 10px no-repeat;
+}
+.danjia span{
+    color: #ec6500;
+    font-size: 21px;
+    margin-left: 38px;;
 }
 
 .history{
