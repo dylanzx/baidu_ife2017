@@ -167,7 +167,7 @@ ul.list li{
 #main{
     margin-left: 260px;
     background-color: #eeedec;
-    height: 500px;
+    height: 800px;
 }
 #main .catalog{
     height: 30px;
@@ -181,7 +181,7 @@ ul.list li{
 .catalog ul li{
     margin-left: 10px;
     float: left;
-    font-size: 12.28px;
+    font-size: 12px;
     color: #b7b7b7;
 }
 .catalog .color{
@@ -265,6 +265,7 @@ span.rightSpan{
     height: 100%;
     border: 1px solid #d7d9dc;
     background-color: #ffffff;
+    border-top: 2px solid #d7d9dc;
     margin-left: 5px;
 }
 li.active{
@@ -304,4 +305,170 @@ li.active{
     position: absolute;
     left: 46px;
     top: 26px;;
+}
+
+.tip{
+    color: #323333;
+    font-size: 12px;
+    margin: 22px auto 0 auto;
+    width: 888px;
+
+}
+
+#main .statistics{
+    width: 888px;
+    height: 72px;
+    margin:6px auto 0 auto;
+}
+.statistics li{
+    float: left;
+    height: 70px;
+    width: 197px;
+    border: 1px solid #d3d5d8;
+    margin-left: 28px;
+    position: relative;
+}
+
+.statistics li:nth-child(1){
+    border-left: 3px solid #43b29d;
+    margin: 0;
+}
+.statistics li:nth-child(2){
+    border-left: 3px solid #388ac1;
+}
+.statistics li:nth-child(3){
+    border-left: 3px solid #d04b36;
+}
+.statistics li:nth-child(4){
+    border-left: 3px solid #e2cd46;
+}
+
+.statistics li span.num{
+    color: #323333;
+    position: absolute;
+    display: block;
+    left: 9px;
+    top: 20px;
+}
+
+.statistics li span.amount{
+    position: absolute;
+    font-size: 10px;
+    color: #b7b7b7;
+    left: 8px;
+    top: 44px;
+}
+
+.statistics li span.box{
+    position: absolute;
+    width: 60px;
+    height: 45px;
+    background-color: red;
+    left: 122px;
+    top: 12px;
+}
+.statistics li:nth-child(1) .box{
+    background-color: #43b29d;
+}
+.statistics li:nth-child(2) .box{
+    background-color: #388ac1;
+}
+.statistics li:nth-child(3) .box{
+    background-color: #d04b36;
+}
+.statistics li:nth-child(4) .box{
+    background-color: #e2cd46;
+}
+
+
+.projects{
+    width: 888px;
+    height: 356px;
+    margin: 14px auto 0 auto;
+    font-size: 12px;
+
+}
+.projects div.project1,.project2{
+    float: left;
+    border: 1px solid #d0d2d6;
+    border-radius: 4px;
+    background-color: #fff;
+
+
+}
+.project1{
+    width: 530px;
+    height: 100%;
+}
+
+.project1 p{
+    width: 100%;
+    height: 39px;
+    border-bottom: 1px solid #d0d2d6;
+    line-height: 39px;
+    color: #aaa;
+    text-indent: 4em;
+    background-color: #f4f6f7;
+}
+.project1 ul{
+    width: 440px;
+    height: 26px;
+    margin-left: 20px;
+    margin-top: 12px;
+}
+.project1 li{
+    color: #535353;
+    float: left;
+    text-align: center;
+    width: 82px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #f4f6f7;
+    margin-right: 4px;
+    border: 1px transparent solid;
+    border-bottom:none ;
+}
+.project1 li.active{
+    border: 1px solid #cbcbcc;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #fff;
+
+}
+.project1 li:hover{
+    background-color: #fff;
+    border: 1px solid #cbcbcc;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.content{
+    width: 488px;
+    height: 250px;
+    margin:0 auto;
+    border:1px solid #cbcbcc;
+
+}
+.project1 table{
+    margin-top: 28px;
+    margin-left: 36px;
+
+    border-collapse:collapse;
+    border:none;
+}
+.project1 td{
+    color: #595a5b;
+    width: 100px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border:solid #e1e1e2 1px;
+}
+
+.project2{
+    width: 346px;
+    height: 100%;
+    margin-left: 8px;
 }
