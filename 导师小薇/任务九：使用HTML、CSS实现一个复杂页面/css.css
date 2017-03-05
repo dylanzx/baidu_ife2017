@@ -409,6 +409,7 @@ li.active{
     color: #aaa;
     text-indent: 4em;
     background-color: #f4f6f7;
+    border-radius: 6px;
 }
 .project1 ul{
     width: 440px;
@@ -471,4 +472,68 @@ li.active{
     width: 346px;
     height: 100%;
     margin-left: 8px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+.project2>p{
+    width: 100%;
+    border-radius: 6px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f4f6f7;
+    color: #aaa;
+    text-indent: 4em;
+}
+.project2 .detail{
+    margin-left: 35px;
+    margin-top: 18px;
+}
+.detail h3{
+    color: #c3c2c2;
+    font-weight: normal;
+    text-indent: 3em;
+    font-size: 12px;
+
+}
+.detail span{
+    margin-left: 36px;
+    color: #535353;
+}
+.detail table{
+    border: 1px solid darkgray;
+    margin-top: 10px;
+    margin-left: 36px;
+}
+.detail table td{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.detail>p{
+    color: #aaa;
+    margin-top: 10px;
+    margin-left: 36px;
+}
+.detail .p1{
+    color: #2a2e3d;
+    margin-top: 6px;
+}
+.project2 form{
+    margin-left: 36px;
+    margin-top: 80px;
+
+}
+.project2 form input[type=checkbox]{
+
+}
+.project2 form label{
+    margin-left: 10px;
+    color: #aaa;;
+}
+.project2 form input[type=button]{
+    margin-left: 80px;
+    background-color: #388ac1;
+    color: #fff;
+
 }
