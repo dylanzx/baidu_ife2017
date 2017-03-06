@@ -49,6 +49,9 @@
         }
     }
     function test(value) {
+        if( value=='' ){
+            return 0;
+           }
         var re = /^[0-9]*$/
         if( re.test(value) ){
             return 1
