@@ -1,102 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <style>
-        ul,li{
-            margin: 0;
-            padding: 0;
+        .container{
+            width: 1320px;
+            margin: 0 auto;
         }
-        input:nth-child(3){
-            margin-right: 20px;
+        .box{
+            width: 100%;
+            height: 400px;
+            background-color: snow;
+            border: 1px solid gray;
         }
-        ul{
-            list-style: none;
-            height: 30px;
-        }
-        li{
-            width: 30px;
-            border: 1px solid red;
-            height: 100%;
-            line-height: 100%;
-            text-align: center;
+        .box div{
+            margin-left: 2px;
             float: left;
-            margin-right: 4px;
+            width: 20px;
+            background-color: rgb(0,0,200);
+            position: relative;
         }
+        .box .clear{
+            padding: 0;
+            float: none;
+            height: 0;
+            width: 0;
+            clear: both;
+            zoom: 1;
+        }
+        span{
+            position: absolute;
+            /*color: #fff;*/
+            font-size: 12px;
+
+        }
+
+
     </style>
 </head>
 <body>
-<input type="text">
-<input type="button" value="左侧入">
-<input type="button" value="右侧入">
-<input type="button" value="左侧出">
-<input type="button" value="右侧出">
-<ul id="list"></ul>
+<div class="container">
+    <div class="control">
+        <input type="text">
+        <input type="button" value="Left In">
+        <input type="button" value="Right In">
+        <input type="button" value="Left Delete">
+        <input type="button" value="Right Delete">
+        <input type="button" value="sort">
+    </div>
+    <br>
+    <div class="box">
+        <div class="clear"></div>
+    </div>
+</div>
 <script>
-    var aInp = document.getElementsByTagName('input');
-    var oUl = document.getElementById('list');
-
-    var data = [];
-
-    function doIt( arr ) {
-
-        oUl.innerHTML = '';
-        for(var i=0;i<arr.length;i++){
-            var oLi = document.createElement("li");
-            oLi.innerHTML = arr[i];
-            oUl.appendChild(oLi)
-        }
-    }
-    function test(value) {
-        var re = /^[0-9]*$/
-        if( re.test(value) ){
-            return 1
-        }
-    }
+    var oCon = document.getElementsByClassName('control')[0];
+    var aInp = oCon.getElementsByTagName('input');
+    var oBox = document.getElementsByClassName('box')[0];
+    var nums = 0
 
     aInp[1].onclick = function () {
-        var value = aInp[0].value;
-        if(!test(value)){
-            alert("请输入数字！")
+        nums++
+        if( nums>60 ){
+            alert("超限");
             return
         }
-        data.unshift(value);
-        doIt(data)
-        aInp[0].value = ''
-    };
-
+        var value = Number(aInp[0].value);
+        if(test(value)){
+            alert("输入不正确！");
+            return
+        }
+        insertElement(value,true)
+    }
     aInp[2].onclick = function () {
-        var value = aInp[0].value;
-        if(!test(value)){
-            alert("请输入数字！")
+            nums++
+        if( nums>60 ){
+            alert("超限")
             return
         }
-        data.push(value);
-        doIt(data);
-        aInp[0].value = ''
-    };
+        var value = Number(aInp[0].value);
+        if(test(value)){
+            alert("输入不正确！")
+            return
+        }
+
+        insertElement(value,false)
+    }
 
     aInp[3].onclick = function () {
-        if( data.length==0 ){
-            alert("无法操作，数组为空！")
-        }else {
-            data.shift();
-            doIt(data)
-        }
+
+        deleteElement(true)
+    }
+    aInp[4].onclick = function () {
+        deleteElement(false)
+    }
+    aInp[5].onclick = function () {
+            sort1()
     };
 
-    aInp[4].onclick = function () {
-        if( data.length==0 ){
-            alert("无法操作，数组为空！")
+
+    function insertElement( iHeight,onOff ) {
+        var oDiv = document.createElement('div');
+        oDiv.style.height = iHeight*2.3+'px';
+
+        oDiv.style.backgroundColor = 'red';
+        oDiv.innerHTML = "<span>"+iHeight+"</span>"
+
+
+        if( onOff ){
+            oBox.insertBefore(oDiv,oBox.firstElementChild)
         }else {
-            data.pop()
-            doIt(data)
+            oBox.insertBefore(oDiv,oBox.lastElementChild)
         }
+
+        oDiv.getElementsByTagName('span')[0].style.bottom = "-14px"
+    }
+
+    function test(value) {
+        if( value<=100 && value>10 ){
+            return 0
+        }else {
+        return 1
+        }
+    }
+
+    function deleteElement( onOff) {
+        if( oBox.children.length == 1 ){
+            alert('没有能删除的元素');
+            return
+        }
+        if( onOff ){
+            oBox.removeChild(oBox.firstElementChild)
+        }else {
+            oBox.removeChild(oBox.children[oBox.children.length-2])
+        }
+    }
+    
+    function sort1() {
+        var divs = oBox.getElementsByTagName('div');
+        if  ( divs.length==1 ){
+            alert("没有可排序元素")
+            return
+        }
+
+        var arr = [];
+        for ( var i=0;i< divs.length-1;i++ ){
+            arr.push(oBox.children[i])
+        }
+
+        //选择排序法
+        for( var i=0;i< arr.length;i++ ){
+            for (var  j=0;j< arr.length;j++ ){
+                if(  arr[i].offsetHeight > arr[j].offsetHeight){
+                    var tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j]= tmp;
+                }
+            }
+        }
+
+        for(  var i=0;i< arr.length;i++  ){
+            oBox.removeChild(oBox.children[0])
+        }
+
+        for(  var i=0;i< arr.length;i++  ){
+            oBox.insertBefore(arr[i],oBox.children[oBox.children.length-1])
+        }
+
     }
 
 </script>
-
-
 </body>
 </html>
