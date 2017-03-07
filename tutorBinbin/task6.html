@@ -20,7 +20,7 @@
     var oBtn = document.getElementsByTagName('button')[0];
     oBtn.onclick = function () {
 
-        alert(search(oText.value,oInp.value))
+
         oText.value = search(oText.value,oInp.value)
     };
     function search( str,value ) {
@@ -33,10 +33,10 @@
 
         var  temp = str.split(reg);
         var reg2 = eval("/"+value+"/g");
-        alert(typeof reg2);
+
         temp.map(function (item,index,temp) {
             if( reg2.test(item) ){
-                alert(1);
+
                 temp[index] = "<span>"+item+"</span>"
             }
         });
