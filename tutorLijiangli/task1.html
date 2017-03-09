@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div,ul,span{  margin:0;padding: 0;}
+        div#container{ width: 470px;height: 150px;border: 1px solid darkgrey;margin: 10px auto; position: relative;overflow: hidden;}
+        ul.box{ width: 2350px;height: 100%;list-style: none;-overflow: hidden;position: absolute }
+        li{
+            float: left;
+            height:100%;
+            width: 470px;
+        }
+        #control{
+            position: absolute;
+            width: 150px;
+            height: 24px;
+            right: 8px;
+            bottom: 8px;
+            text-align: right;
+        }
+
+        #control span{
+            display: inline-block;
+            background-color: #666;
+            color: #fff;
+            text-align: center;
+            line-height: 24px;
+            height: 100%;
+            width: 24px;
+            margin-left: 4px;
+        }
+        #control .active{
+            color: #fff;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul class="box">
+        <li><img src="pics/1.jpg" alt=""></li>
+        <li><img src="pics/2.jpg" alt=""></li>
+        <li><img src="pics/3.jpg" alt=""></li>
+        <li><img src="pics/4.jpg" alt=""></li>
+        <li><img src="pics/5.jpg" alt=""></li>
+    </ul>
+    <div id="control">
+        <span class="active">1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+    </div>
+</div>
+<script src="move.js"></script>
+<script>
+    var oBox = document.getElementsByClassName('box')[0];
+    var aLi = oBox.getElementsByTagName('li');
+    var oC = document.getElementById('control');
+    var aSpan =oC.getElementsByTagName('span');
+
+    var onOff = true;
+    var num = 0
+    var num2 = 0;
+    var timer = null
+
+    var iWidth = aLi[0].offsetWidth;
+
+    oBox.onmouseover = function () {
+        clearInterval(timer)
+
+    }
+    oBox.onmouseout = function () {
+
+        timer = setInterval(run,3000)
+
+    }
+
+    timer = setInterval(run,3000)
+
+
+    for(var i=0;i<aLi.length;i++){
+
+        aSpan[i].index = i;
+        aSpan[i].onmouseover = function () {
+            clearInterval(timer)
+            if( onOff ){
+                onOff = !onOff
+                for( var i=0;i<aSpan.length;i++ ){
+                    aSpan[i].className = ''
+                }
+                this.className = 'active'
+                num = this.index;
+                num2= this.index
+
+                startMove(oBox,{left:-this.index*iWidth})
+                onOff = !onOff
+            }
+        }
+    }
+
+    function run() {
+        if(  num==0){
+            aLi[0].style.position = 'static';
+            oBox.style.left = 0;
+            num2 = 0
+
+        }
+        if( num==aLi.length-1 ){
+            num =0;
+
+            aLi[0].style.position = 'relative';
+            aLi[0].style.left = aLi.length*iWidth+'px'
+            aLi[0].style.top = 0
+        }else {
+            num++
+        }
+        num2++
+
+        for(var i=0;i<aLi.length;i++){
+            aSpan[i].className = '';
+        }
+        aSpan[num].className = 'active';
+        startMove( oBox , { left : - num2*iWidth } );
+    }
+
+</script>
+
+</body>
+</html>

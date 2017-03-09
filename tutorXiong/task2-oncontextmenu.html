@@ -30,6 +30,7 @@
     }
     document.oncontextmenu = function (ev) {
         var ev = ev||event;
+        ev.preventDefault()
         var winWidth = document.documentElement.clientWidth||document.body.clientWidth;
         var winHeight = document.documentElement.clientHeight||document.body.clientHeight;
         var left = ev.clientX;
